@@ -3,7 +3,7 @@
 require_once 'Model/datahandler.php';
 require_once 'View/outputData.php';
 
-class SongsLogic {
+class ReservationsLogic {
 
     public function __construct() {
         $this->datahandler = new datahandler("localhost", "mysql", "school","root", "");
@@ -12,11 +12,11 @@ class SongsLogic {
 
     public function __destruct(){}
     
-    public function addSong($name, $artist){
+    public function addSong($parameters){
 
         try {
 
-            $query = "INSERT INTO songs (name, artist)";
+            $query = "INSERT INTO reservations (COLUMNS)";
             $query .= "VALUES ('$name', '$artist');";
             $result = $this->datahandler->createData($query);
             
@@ -28,11 +28,11 @@ class SongsLogic {
         
     }
 
-    public function readAllSongs(){
+    public function readAllReservations(){
 
         try {
 
-            $query = "SELECT id, name, file, artist FROM songs";
+            $query = "SELECT reservationID, first_name, last_name, reservation_date FROM reservations";
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
 
@@ -46,11 +46,11 @@ class SongsLogic {
 
     }
 
-    public function readOnesong($id){
+    public function readOneReservation($id){
 
         try {
 
-            $query = "SELECT * FROM songs ";
+            $query = "SELECT * FROM reservations ";
             $query .= "WHERE id=$id ";
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
@@ -64,11 +64,11 @@ class SongsLogic {
         }
     }
 
-    public function deleteSong($id){
+    public function deleteReservation($id){
 
         try {
 
-            $query = "DELETE FROM songs ";
+            $query = "DELETE FROM reservations ";
             $query .= "WHERE id=$id ";
             $result = $this->datahandler->deleteData($query);
             
