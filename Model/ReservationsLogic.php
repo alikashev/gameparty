@@ -6,7 +6,7 @@ require_once 'View/outputData.php';
 class ReservationsLogic {
 
     public function __construct() {
-        $this->datahandler = new datahandler("localhost", "mysql", "school","root", "");
+        $this->datahandler = new datahandler("localhost", "mysql", "gameparty","ali", "ali1903");
         $this->outputData = new OutputData();
     }
 
@@ -32,7 +32,7 @@ class ReservationsLogic {
 
         try {
 
-            $query = "SELECT reservationID, first_name, last_name, reservation_date FROM reservations";
+            $query = "SELECT reservation_id, reservation_name, reservation_date, reservation_place FROM reservations";
             $result = $this->datahandler->readsData($query);
             $results = $result->fetchAll();
 

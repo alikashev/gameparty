@@ -1,0 +1,12 @@
+body {
+    background-color: rosybrown;
+}
+.container {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+.add-btn {
+    background-color: greenyellow;
+    color: red;
+}
